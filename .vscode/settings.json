@@ -4,9 +4,13 @@
     "source.fixAll": "explicit"
   },
   "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact"
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "i18n-ally.localesPaths": [
+    "locales",
+    "src/lib/i18n"
   ],
 }

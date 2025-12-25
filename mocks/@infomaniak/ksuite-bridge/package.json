@@ -1,0 +1,5 @@
+{
+    "main": "index.ts",
+    "name": "@infomaniak/ksuite-bridge",
+    "version": "0.3.10"
+}

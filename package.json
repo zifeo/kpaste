@@ -6,7 +6,7 @@
   "dependencies": {
     "@emotion/react": "11.11.4",
     "@emotion/styled": "11.11.5",
-    "@infomaniak/ksuite-bridge": "0.3.10",
+    "@infomaniak/ksuite-bridge": "file:mocks/@infomaniak/ksuite-bridge",
     "@mui/icons-material": "5.15.17",
     "@mui/material": "5.15.17",
     "base-x": "4.0.0",
@@ -42,7 +42,9 @@
     "test-chrome": "CYPRESS_BASE_URL=http://localhost:3002 start-server-and-test server-chrome 3002 cy:run-chrome",
     "translations": "node node_modules/i18next-parser/bin/cli.js 'src/**/*.{js,jsx}'",
     "browserstack-run": "browserstack-cypress run",
-    "browserstack-info": "browserstack-cypress build-info"
+    "browserstack-info": "browserstack-cypress build-info",
+    "mock:on": "npm install @infomaniak/ksuite-bridge@file:./mocks/@infomaniak/ksuite-bridge",
+    "mock:off": "npm install @infomaniak/ksuite-bridge@0.3.10"
   },
   "engines": {
     "node": ">=12.0.0"

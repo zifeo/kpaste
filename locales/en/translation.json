@@ -22,8 +22,11 @@
     "login": "Login"
   },
   "meta": {
-    "title": "kPaste – The solution for sending ephemeral messages in total security",
-    "description": "Share your passwords, login credentials and any other sensitive information simply and in total peace of mind with kPaste. This service is free and encrypted."
+    "description": "Share your passwords, login credentials and any other sensitive information simply and in total peace of mind with kPaste. This service is free and encrypted.",
+    "title": "kPaste – The solution for sending ephemeral messages in total security"
+  },
+  "password_generator": {
+    "title": "Insert a password"
   },
   "paste": {
     "button": {

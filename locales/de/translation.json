@@ -22,8 +22,11 @@
     "login": "Anmelden"
   },
   "meta": {
-    "title": "kPaste – Die Lösung für das völlig sichere Versenden kurzlebiger Nachrichten",
-    "description": "Teilen Sie Ihre Kennwörter, Benutzernamen oder jegliche sensiblen Informationen völlig bedenkenlos über kPaste. Dieser Dienst ist kostenlos und verschlüsselt."
+    "description": "Teilen Sie Ihre Kennwörter, Benutzernamen oder jegliche sensiblen Informationen völlig bedenkenlos über kPaste. Dieser Dienst ist kostenlos und verschlüsselt.",
+    "title": "kPaste – Die Lösung für das völlig sichere Versenden kurzlebiger Nachrichten"
+  },
+  "password_generator": {
+    "title": "Passwort einfügen"
   },
   "paste": {
     "button": {

@@ -22,8 +22,11 @@
     "login": "Login"
   },
   "meta": {
-    "title": "kPaste - La solution pour envoyer des messages éphémères en toute sécurité",
-    "description": "Partagez sans crainte vos mots de passe, vos identifiants ou toute information sensible simplement avec kPaste. Ce service est gratuit et chiffré."
+    "description": "Partagez sans crainte vos mots de passe, vos identifiants ou toute information sensible simplement avec kPaste. Ce service est gratuit et chiffré.",
+    "title": "kPaste - La solution pour envoyer des messages éphémères en toute sécurité"
+  },
+  "password_generator": {
+    "title": "Insérer un mot de passe"
   },
   "paste": {
     "button": {

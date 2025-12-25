@@ -1,0 +1,3 @@
+export const WEB_COMPONENT_API_ENDPOINT = import.meta.env.VITE_WEB_COMPONENT_API_ENDPOINT;
+export const WEB_COMPONENT_ENDPOINT = import.meta.env.VITE_WEB_COMPONENT_ENDPOINT;
+export const SHOP_ENDPOINT = import.meta.env.VITE_SHOP_ENDPOINT;

@@ -22,11 +22,7 @@ The data are encrypted and decrypted directly in your Internet browser via the 2
 
 ## install
 
-```bash
-export VITE_WEB_COMPONENT_ENDPOINT="https://web-components.storage.infomaniak.com/next/init.js"
-export VITE_WEB_COMPONENT_API_ENDPOINT="https://welcome.infomaniak.com"
-export VITE_SHOP_ENDPOINT="https://shop.infomaniak.com"
-```
+See `./.env.development` for the environment variables.
 
 ```bash
 nvm use 19
@@ -43,6 +39,33 @@ npm start
 
 ```bash
 npm run build
+```
+
+## Development Mode & Mocking
+
+Since this project depends on private Infomaniak registries, a mocking strategy is used for local development.
+
+You can toggle between the real dependency and the local mock using the following commands:
+
+```bash
+# Use local mock (updates package-lock.json to point to local files)
+npm run mock:on
+
+# Surgical Reset (restores the registry version while keeping other changes like new libraries)
+npm run mock:off
+```
+
+### CORS & Proxy
+
+To avoid CORS issues in development, the project uses a Vite proxy. The configuration is explicit in `.env.development`:
+
+1. **`VITE_WEB_COMPONENT_API_ENDPOINT`**: Empty (`""`) to force the browser to use relative paths.
+2. **`VITE_WEB_COMPONENT_API_ENDPOINT_PROXY`**: The actual target URL for the proxy.
+
+```bash
+nvm use 19
+npm i
+npm start
 ```
 
 ## k8s
@@ -74,6 +97,7 @@ there is a precommit hook based on eslint check
 localhost don't work because of https
 
 this plugin automatically enables HTTPS for Vite development servers by generating self-signed SSL certificates.
+
 ```bash
 npm install -D @vitejs/plugin-basic-ssl\n
 ```
@@ -81,10 +105,13 @@ npm install -D @vitejs/plugin-basic-ssl\n
 in vite.config.ts
 
 add BasicSsl :
+
 ```bash
 import basicSsl from '@vitejs/plugin-basic-ssl'
 ```
+
 defineConfig plugin :
+
 ```bash
   plugins: [
     react(),

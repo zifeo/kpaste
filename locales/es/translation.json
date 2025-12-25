@@ -22,8 +22,11 @@
     "login": "Iniciar sesión"
   },
   "meta": {
-    "title": "kPaste – La solución para enviar mensajes efímeros con total seguridad",
-    "description": "Comparte sin temor sus contraseñas, tus credenciales de identificación o cualquier otra información sensible simplemente con kPaste. Este es un servicio gratuito y cifrado."
+    "description": "Comparte sin temor sus contraseñas, tus credenciales de identificación o cualquier otra información sensible simplemente con kPaste. Este es un servicio gratuito y cifrado.",
+    "title": "kPaste – La solución para enviar mensajes efímeros con total seguridad"
+  },
+  "password_generator": {
+    "title": "Insertar una contraseña"
   },
   "paste": {
     "button": {

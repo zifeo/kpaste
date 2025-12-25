@@ -1,16 +1,17 @@
-import { CloseSidePanelMessageKey, KSuiteBridge } from '@infomaniak/ksuite-bridge';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import SvgIcon from '@mui/material/SvgIcon';
-import MenuItem from '@mui/material/MenuItem';
-import CloseIcon from '@mui/icons-material/Close';
-import { FC, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import iconMenu from '../../images/menu.svg'
-import i18n from '../../lib/i18n/i18n';
-import StyledSelect from '../StyledSelect/StyledSelect';
-import { InputBase, SelectChangeEvent } from '@mui/material';
-import { Session } from '../../types/user';
+import { CloseSidePanelMessageKey, KSuiteBridge } from "@infomaniak/ksuite-bridge";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import SvgIcon from "@mui/material/SvgIcon";
+import MenuItem from "@mui/material/MenuItem";
+import CloseIcon from "@mui/icons-material/Close";
+import { FC, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import iconMenu from "../../images/menu.svg";
+import i18n from "../../lib/i18n/i18n";
+import StyledSelect from "../StyledSelect/StyledSelect";
+import { InputBase, SelectChangeEvent } from "@mui/material";
+import { Session } from "../../types/user";
+import { WEB_COMPONENT_API_ENDPOINT, SHOP_ENDPOINT } from "../../config";
 
 type Props = {
   bridge: KSuiteBridge | null;
@@ -21,13 +22,16 @@ const IkHeader: FC<Props> = ({ bridge }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_WEB_COMPONENT_API_ENDPOINT}/api/components/profile/me?with=current_group,user,groups,products`, {
-      method: 'GET',
-      credentials: 'include',
-    })
-      .then((response) => (response.ok ? response.json() : Promise.reject(
-        new Error(response.statusText),
-      )))
+    fetch(
+      `${WEB_COMPONENT_API_ENDPOINT}/api/components/profile/me?with=current_group,user,groups,products`,
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    )
+      .then((response) =>
+        response.ok ? response.json() : Promise.reject(new Error(response.statusText))
+      )
       .then((json) => {
         if (json.data.user) {
           if (json.data.user.locale) {
@@ -46,7 +50,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
   };
 
   const onLogin = () => {
-    window.location.href = `${import.meta.env.VITE_SHOP_ENDPOINT}/auth/login/paste?uri=${window.location.pathname}`;
+    window.location.href = `${SHOP_ENDPOINT}/auth/login/paste?uri=${window.location.pathname}`;
   };
 
   const onCloseSidepanel = () => {
@@ -54,13 +58,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
   };
 
   const showNotConnectedMenu = () => {
-    const languages = [
-      'fr',
-      'en',
-      'it',
-      'de',
-      'es',
-    ];
+    const languages = ["fr", "en", "it", "de", "es"];
 
     if (!session || !session.user || session.user.length !== 0) {
       return false;
@@ -76,10 +74,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
             variant="outlined"
           >
             {languages.map((option) => (
-              <MenuItem
-                key={option}
-                value={option}
-              >
+              <MenuItem key={option} value={option}>
                 {option}
               </MenuItem>
             ))}
@@ -93,7 +88,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
             onClick={onLogin}
             variant="contained"
           >
-            {t('menu.login')}
+            {t("menu.login")}
           </Button>
         </div>
       </>
@@ -106,9 +101,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
     }
 
     return (
-      <div
-        className="relative header-icon-wrapper header-icon-wrapper--hide-overflow"
-      >
+      <div className="relative header-icon-wrapper header-icon-wrapper--hide-overflow">
         <wc-user-panel
           user-id={session.user.id}
           user-avatar-src={session.user.avatar}
@@ -120,7 +113,6 @@ const IkHeader: FC<Props> = ({ bridge }) => {
   };
 
   const showProductMenuRight = () => {
-
     if (!session || !session.user || !session.user.id) {
       return false;
     }
@@ -128,22 +120,15 @@ const IkHeader: FC<Props> = ({ bridge }) => {
     return (
       <div className="relative header-icon-wrapper">
         <module-products-component position="left">
-          <div
-            className="header-icon"
-            slot="trigger"
-          >
-            <img
-              alt="menu"
-              src={iconMenu}
-              width="20"
-            />
+          <div className="header-icon" slot="trigger">
+            <img alt="menu" src={iconMenu} width="20" />
           </div>
         </module-products-component>
       </div>
     );
   };
 
-  if (window.location.search.includes('ksuite-mode=side') && bridge && bridge.isConnected) {
+  if (window.location.search.includes("ksuite-mode=side") && bridge && bridge.isConnected) {
     return (
       <header className="ik-header bridge-header">
         <div className="flex flex--v-center">
@@ -151,7 +136,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
             style={{
               marginLeft: 32,
               fontSize: 16,
-              color: 'black',
+              color: "black",
             }}
           >
             <strong>kPaste</strong>
@@ -166,7 +151,7 @@ const IkHeader: FC<Props> = ({ bridge }) => {
             tabIndex={0}
             aria-labelledby="closeButton"
           >
-            <SvgIcon style={{ color: '#666' }}>
+            <SvgIcon style={{ color: "#666" }}>
               <CloseIcon />
             </SvgIcon>
           </div>
@@ -189,6 +174,6 @@ const IkHeader: FC<Props> = ({ bridge }) => {
       </div>
     </header>
   );
-}
+};
 
 export default IkHeader;
